@@ -132,11 +132,37 @@ python vis/try_vis_cosine_two.py \
 
 ### IFD
 
+Please reach to [Superfiltering](https://github.com/tianyi-lab/Superfiltering) for details. 
+
 ### InsTag
+
+```
+python metrics/cal_instag.py \
+    --input_file _data/10k_version/wiz_10k.json \
+    --output_file _data/10k_version/InsTag/wiz_10k_raw_instag.json \
+    --api_key xxx \
+    --batch_size 50 \
+    --instruction_template instag
+```
 
 ### Reward
 
+```
+python metrics/cal_reward.py \
+    --input _data/10k_version/wiz_10k.json \
+    --output _data/10k_version/Reward/wiz_10k.jsonl 
+```
+
 ### Difficulty
+
+```
+python metrics/cal_instag.py \
+    --input_file _data/10k_version/wiz_10k.json \
+    --output_file _data/10k_version/Diff/wiz_10k_raw_diff.json \
+    --api_key xxx \
+    --batch_size 50 \
+    --instruction_template diff
+```
 
 ## ToDo
 - [x] Release paper and codes. 
