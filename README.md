@@ -132,7 +132,14 @@ python vis/try_vis_cosine_two.py \
 
 ### IFD
 
-Please reach to [Superfiltering](https://github.com/tianyi-lab/Superfiltering) for details. 
+```
+python metrics/cal_ifd.py \
+    --data_path _data/10k_version/wiz_10k.json \
+    --save_path _data/10k_version/IFD/wiz_10k.jsonl 
+```
+**Note: When selecting by IFD scores, make sure to remove the potential NaN values and filter out the values greater than 1.** 
+The example selection code is: `metrics/select_by_metric.py`. 
+Please reach to [Superfiltering](https://github.com/tianyi-lab/Superfiltering) for details.
 
 ### InsTag
 
@@ -162,6 +169,17 @@ python metrics/cal_instag.py \
     --api_key xxx \
     --batch_size 50 \
     --instruction_template diff
+```
+
+### Selection
+
+```
+python metrics/select_by_metric.py \
+  --input_file xxx \
+  --key xxx \
+  --highest_output xxx \
+  --lowest_output xxx \
+  --count 200
 ```
 
 ## ToDo
