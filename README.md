@@ -5,8 +5,8 @@ Chinese Version: [[知乎]](https://github.com/MingLiiii/Gradient_Unified)
 
 This is the repo for the Gradient_Unified project, in which we provide a **Unified** view on the effects of data quality across instruction and reasoning data by spectural analysis.
 
-<p align="center" width="40%">
-<a ><img src="images/alpaca.png" alt="overview" style="width: 40%; min-width: 300px; display: block; margin: auto;"></a>
+<p align="center" width="50%">
+<a ><img src="images/alpaca.png" alt="overview" style="width: 50%; min-width: 300px; display: block; margin: auto;"></a>
 </p>
 
 The repo contains:
