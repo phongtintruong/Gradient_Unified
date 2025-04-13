@@ -54,8 +54,79 @@ Install the dependencies with `pip install -r requirements.txt`
 ## Code for Gradients
 
 ### Calculating Gradient Statistics
+```
+data_names=(
+wiz_10k_highest_200
+wiz_10k_lowest_200
+)
+metric_names=(
+ifd_gpt2
+)
+for i in $(seq 0 $((${#data_names[@]}-1))); do
+    for j in $(seq 0 $((${#metric_names[@]}-1))); do
+
+        # Get the chunk_len based on the current iteration
+        data_name=${data_names[$i]}
+        metric_name=${metric_names[$j]}
+
+        python get_grad_vector_initial_try.py \
+            --data_path _data/10k_version/${metric_name}/${data_name}.json \
+            --save_path grads/qwen25_7b/${metric_name}/grads_${data_name}.jsonl \
+            --model_name_or_path Qwen/Qwen2.5-7B \
+            --max_length 4096
+    done
+done
+```
+**Note: The saved dict structure is shown in `dict_structure.txt` for better understanding.** 
 
 ### Visualizing Gradient Statistics
+
+#### Nuclear Norm
+
+```
+python vis/try_vis_nuclear_two.py \
+    --input1 "grads/${model_name}/${metric_name}/grads_${data_name}_highest_200.jsonl" \
+    --input2 "grads/${model_name}/${metric_name}/grads_${data_name}_lowest_200.jsonl" \
+    --output_path "grads/${model_name}/${metric_name}/vis_${data_name}_nuclear.png" \
+    --main_title "Nuclear Norm (${data_name}) (${metric_name})" \
+    --left_title "High (${metric_name})" \
+    --right_title "Low (${metric_name})"
+```
+
+(For simplicity, we omit the loop on model/metric/data names.)
+
+#### Effective Rank
+
+```
+python vis/try_vis_effective_rank_entropy_two.py \
+    --input_path1 "grads/${model_name}/${metric_name}/grads_${data_name}_highest_200.jsonl" \
+    --input_path2 "grads/${model_name}/${metric_name}/grads_${data_name}_lowest_200.jsonl" \
+    --output_path "grads/${model_name}/${metric_name}/vis_${data_name}_effective_rank_entropy.png" \
+    --figure_title1 "High (${metric_name})" \
+    --figure_title2 "Low (${metric_name})"
+```
+
+#### Same-layer Similarity 
+
+```
+python vis/try_vis_cosine_qkvo_two.py \
+    --input1 "grads/${model_name}/${metric_name}/grads_${data_name}_highest_200.jsonl" \
+    --input2 "grads/${model_name}/${metric_name}/grads_${data_name}_lowest_200.jsonl" \
+    --output  "grads/${model_name}/${metric_name}/vis_${data_name}_cosine_qkvo.png" \
+    --title1    "High (${metric_name})" \
+    --title2    "Low (${metric_name})"
+```
+
+#### Adjacent-layer Similarity
+
+```
+python vis/try_vis_cosine_two.py \
+    --data_path1 "grads/${model_name}/${metric_name}/grads_${data_name}_highest_200.jsonl" \
+    --data_path2 "grads/${model_name}/${metric_name}/grads_${data_name}_lowest_200.jsonl" \
+    --save_fig  "grads/${model_name}/${metric_name}/vis_${data_name}_cosine_adj.png" \
+    --title1    "High (${metric_name})" \
+    --title2    "Low (${metric_name})"
+```
 
 ## Code for Quality Metrics
 
