@@ -42,10 +42,10 @@ this work illuminates the interplay between data quality and training stability,
 ## Highlights
 
 **Our Key Findings:**
-* Existing data quality metrics, e.g., IFD, InsTag, Difficulty, and Reward, can be **unified** due to consistent spectral properties of gradients, i.e., lower nuclear norms and higher effective ranks on high-quality data. This finding extends to both instruction and reasoning data, providing a unified view of the data quality effects.
-* Effective rank outperforms nuclear norm to distinguish low- vs. high-quality data. For reasoning data, s1.1 data yields the largest effective ranks across all experiments, suggesting high correlations between reasoning complexity and gradient diversity.
-* Within the same model family, layer-wise gradients' spectral properties remain consistent across different model sizes. In contrast, the gradient patterns diverge significantly across distinct model families, reflecting the unique learning dynamics of each model family.
-* Cosine similarities between gradients from the same layer and adjacent layers remain nearly zero for different types of data, so they cannot reflect data quality.  
+* Existing data quality metrics, e.g., IFD, InsTag, Difficulty, and Reward, **can be unified due to consistent spectral properties of gradients, i.e., lower nuclear norms and higher effective ranks on high-quality data.** This finding extends to both instruction and reasoning data, providing a unified view of the data quality effects.
+* **Effective rank outperforms nuclear norm to distinguish low- vs. high-quality data**. For reasoning data, **s1.1 data yields the largest effective ranks across all experiments**, suggesting high correlations between reasoning complexity and gradient diversity.
+* Within the same model family, **layer-wise gradients' spectral properties remain consistent across different model sizes**. In contrast, the gradient patterns diverge significantly across distinct model families, **reflecting the unique learning dynamics of each model family.**
+* **Cosine similarities between gradients from the same layer and adjacent layers remain nearly zero** for different types of data, so they cannot reflect data quality.  
 
 ## Install
 
