@@ -130,7 +130,9 @@ python vis/try_vis_cosine_two.py \
 
 ## Code for Quality Metrics
 
-### IFD
+### Code for Metrics
+
+#### IFD
 
 ```
 python metrics/cal_ifd.py \
@@ -141,7 +143,7 @@ python metrics/cal_ifd.py \
 The example selection code is: `metrics/select_by_metric.py`. 
 Please reach to [Superfiltering](https://github.com/tianyi-lab/Superfiltering) for details.
 
-### InsTag
+#### InsTag
 
 ```
 python metrics/cal_instag.py \
@@ -152,7 +154,7 @@ python metrics/cal_instag.py \
     --instruction_template instag
 ```
 
-### Reward
+#### Reward
 
 ```
 python metrics/cal_reward.py \
@@ -160,7 +162,7 @@ python metrics/cal_reward.py \
     --output _data/10k_version/Reward/wiz_10k.jsonl 
 ```
 
-### Difficulty
+#### Difficulty
 
 ```
 python metrics/cal_instag.py \
@@ -170,8 +172,9 @@ python metrics/cal_instag.py \
     --batch_size 50 \
     --instruction_template diff
 ```
+### Code for Selection
 
-### Selection
+#### Selection
 
 ```
 python metrics/select_by_metric.py \
