@@ -1,7 +1,7 @@
 # How Instruction and Reasoning Data shape Post-Training: Data Quality through the Lens of Layer-wise Gradients
 
 [How Instruction and Reasoning Data shape Post-Training: Data Quality through the Lens of Layer-wise Gradients](https://arxiv.org/abs/2504.10766) <br>
-Chinese Version: [[知乎]](https://github.com/MingLiiii/Gradient_Unified)
+Chinese Version: [[知乎]](https://zhuanlan.zhihu.com/p/1895793189916496965)
 
 This is the repo for the Gradient_Unified project, in which we provide a **Unified** view on the effects of data quality across instruction and reasoning data by spectural analysis.
 
